@@ -1,0 +1,27 @@
+<?php
+	require_once("connexion.php");
+	if(isset($_POST['Cin']))
+		$libelleEv=$_POST['Cin'];
+	if(isset($_POST['NomGérant']))
+		$typeEv=$_POST['NomGérant'];
+	if(isset($_POST['PrenGérant']))
+		$datedeclaration=$_POST['PrenGérant'];
+	if(isset($_POST['Adressg']))
+		$importance=$_POST['Adressg'];
+	if(isset($_POST['NumtelG']))
+		$datedesolution=$_POST['NumtelG'];
+	if(isset($_POST['DateNaissG']))
+		$Sol=$_POST['DateNaissG'];
+
+{
+//Insertion de données
+		$sql="INSERT INTO Gérant(Cin,NomGérant,PrenGérant,Adressg,NumtelG,DateNaissG)
+						VALUES ('$Cin','$NomGérant','$PrenGérant','$Adressg','$NumtelG','$DateNaissG';)";
+		
+		$res = $connexion->exec($sql); 
+	if($res!=0)
+		echo "<script>alert('Le gérant dont le nom << $NomGéran >> a ete saisie'); </script>";
+	else
+		echo "<script>alert('insertion echouée')</script>";
+}
+?>
